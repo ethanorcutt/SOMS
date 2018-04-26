@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resource :profile
   end
 
-  get '/forbidden', to: 'welcome#index'
+  get 'forbidden', to: 'welcome#index'
 
   get 'admin', to: 'admin#index'
   get '/admin/users', to: 'admin#users', as: 'user_management'
