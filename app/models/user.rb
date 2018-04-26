@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_one :profile
 
+  def toggle_admin!
+    update admin: !admin
+  end
 end

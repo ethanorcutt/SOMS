@@ -2,14 +2,21 @@
 
 - if user_signed_in?
   %p
-    Hello, #{current_user.profile.full_name}
+    - if current_user.admin?
+      = link_to 'Admin Panel', admin_path
   %p
     - if current_user.profile
-      = link_to 'View Profile', user_path(current_user.id)
+      %p
+        Hello, #{current_user.profile.full_name}
+      %p
+        = link_to 'View Profile', user_path(current_user.id)
+      %p
+        = link_to 'Edit Profile', edit_user_profile_path(user_id: current_user.id)
     - else
-      = link_to 'Create your Profile!', new_user_profile_path(user_id: current_user.id)
-  %p
-    = link_to 'Edit Profile', edit_user_profile_path(user_id: current_user.id)
+      %p
+        Hello! Please fill our your profile.
+      %p
+        = link_to 'Create your Profile!', new_user_profile_path(user_id: current_user.id)
   %p
     = link_to 'Logout', destroy_user_session_path, method: :delete
 - else

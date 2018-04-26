@@ -1,0 +1,26 @@
+.spacer
+.container
+  .row
+    .col-md-12
+      .card
+        .card-header
+          %h3
+            User Management Center
+        .table-card
+          %table.table
+            %thead
+              %tr
+                %th Name
+                %th Email
+                %th Contact Email
+                %th Is Admin
+            %tr
+            - @users.each do |user|
+              %tr
+                %td= user.profile.full_name
+                %td= user.email
+                %td= user.profile.contact_email
+                %td= user.admin ? (link_to "Demote from Admin", toggle_admin_path(user.id), data: { confirm: 'Are you sure?' }) : (link_to "Promote to Admin", toggle_admin_path(user.id), data: { confirm: 'Are you sure?' })
+
+  .row
+    = link_to 'Back to Admin', admin_path
