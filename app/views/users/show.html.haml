@@ -1,1 +1,15 @@
-#h1 Hello, Testing!
+.container
+  .row
+    %h1 SHOW PAGE
+    .col-md-6
+      %h1
+        = @user.profile.first_name
+        = @user.profile.last_name
+      .well.profile-block.profile-description
+        %h3 Description
+        = @user.profile.description
+        %h3 Contact Information
+        = @user.profile.phone_number
+        %br/
+        = @user.profile.contact_email
+        %br/

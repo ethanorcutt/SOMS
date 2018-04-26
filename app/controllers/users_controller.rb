@@ -1,15 +1,16 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.includes(:profile)
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
   end
 
   # GET /users/new
