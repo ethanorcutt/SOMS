@@ -35,6 +35,10 @@ gem 'haml-rails'
 # Use Devise for user management
 # https://github.com/plataformatec/devise
 gem 'devise'
+# Use Bootstrap for styling
+gem 'bootstrap'
+# Use SimpleForm for easy to create forms
+gem 'simple_form'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

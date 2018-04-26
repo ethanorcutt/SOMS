@@ -1,8 +1,12 @@
 %h1 Welcome to the Student Organization Membership System (SOMS)
 
 - if user_signed_in?
-  %p Hello, #{current_user.email}
-  = link_to 'Logout', destroy_user_session_path, method: :delete
+  %p
+    Hello, #{current_user.email}
+  %p
+    = link_to 'Edit Profile', edit_user_profiles_path(user_id: current_user.id)
+  %p
+    = link_to 'Logout', destroy_user_session_path, method: :delete
 - else
   %p
     = link_to 'Login', new_user_session_path
